@@ -1,14 +1,34 @@
-function mergeArrays(arr1, arr2) {
-  const arr3 = arr1.concat(arr2);
-  let unique = [];
-  for (i = 0; i < arr3.length; i++) {
-    if (unique.indexOf(arr3[i]) === -1) {
-      unique.push(arr3[i]);
+function invert(array) {
+  let result = [];
+  console.log(array);
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 0) {
+      result[i] = 0;
+    } else {
+      result[i] = array[i] * -1;
     }
   }
-  unique.sort((a, b) => a - b);
-  return unique;
+  console.log(result);
+  return result;
 }
-const mas1 = [5, 4, 2, 4, 3, 2, 1, 20, 12, 55];
-const mas2 = [6, 8, 7, 9, 10];
-mergeArrays(mas1, mas2);
+
+function spinWords(string) {
+  let arr = string.split(" ");
+  let editedArray = [];
+  let reverseEl;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length >= 5) {
+      reverseEl = arr[i].split("").reverse().join("");
+      editedArray += reverseEl + " ";
+    } else {
+      editedArray += arr[i] + " ";
+    }
+  }
+  editedArray = editedArray.slice(0, -1);
+  return editedArray;
+}
+let str = "This is another test";
+spinWords(str);
+
+let mas = [-1, 2, 4, 5, -3, 0, 9, -10, 0];
+invert(mas);
